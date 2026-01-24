@@ -4,15 +4,15 @@ import { Footer } from "../components/Footer";
 import { NavLink } from "react-router-dom";
 
 export default function Portfolio() {
-  const [darkMode, setDarkMode] = useState(true);
+  // const [darkMode, setDarkMode] = useState(true);
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
+  // useEffect(() => {
+  //   if (darkMode) {
+  //     document.documentElement.classList.add('dark');
+  //   } else {
+  //     document.documentElement.classList.remove('dark');
+  //   }
+  // }, [darkMode]);
 
   return (
     <div className="min-h-screen transition-colors duration-500 bg-[#f8fafc] dark:bg-[#0f172a] font-display text-slate-900 dark:text-slate-100 antialiased selection:bg-[#4b2bee]/30">
@@ -23,9 +23,9 @@ export default function Portfolio() {
         className="fixed bottom-8 right-8 z-50 p-4 rounded-2xl bg-white dark:bg-slate-800 text-[#4b2bee] shadow-xl hover:scale-110 active:scale-95 transition-all border border-slate-200 dark:border-slate-700"
         aria-label="Toggle Theme"
       >
-        <span className="material-symbols-outlined flex items-center justify-center">
+        {/* <span className="material-symbols-outlined flex items-center justify-center">
           {darkMode ? 'light_mode' : 'dark_mode'}
-        </span>
+        </span> */}
       </button>
 
       <Navbar />
@@ -36,7 +36,7 @@ export default function Portfolio() {
           {/* Hero Section */}
           <section className="relative py-24 rounded-[2.5rem] bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 overflow-hidden shadow-2xl shadow-slate-200/50 dark:shadow-none">
             {/* Background Glows */}
-            <div className={`absolute inset-0 transition-opacity duration-700 ${darkMode ? 'opacity-40' : 'opacity-10'}`}>
+            <div className={`absolute inset-0 transition-opacity duration-700  'opacity-40' }`}>
               <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#4b2bee] rounded-full blur-[120px]" />
               <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500 rounded-full blur-[120px]" />
             </div>
