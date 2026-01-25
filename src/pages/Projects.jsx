@@ -30,13 +30,13 @@ const projectsData = [
     category: "Node.js",
     problem: "Tourists often lack instant, personalized information about local historical sites.",
     solution: "Integrated GPT-4 to create an AI tour guide that provides real-time answers and personalized location suggestions.",
-    image: "",
-    liveDemo: "https://backend-mu-ten-26.vercel.app",
+    image: "ter7alapi.png",
+    liveDemo: "https://backend-mu-ten-26.vercel.app/api-docs/",
     github: "#"
   },
   {
     title: "Terhal Tour Guide App ترحال",
-    stack: ["React", "GPT-4"," Geolocation"],
+    stack: ["React", "GPT-4", " Geolocation"],
     category: "React",
     problem: "Difficulty in finding nearby guides and activities based on real-time environmental factors.",
     solution: "Implemented live geolocation tracking and AI-driven recommendations based on current weather and proximity.",
@@ -46,8 +46,8 @@ const projectsData = [
   },
   {
     title: "Modern E-Commerce Store API",
-    stack: [ "Stripe", "Fawry", "Node.js"],
-    category: "Node.js", 
+    stack: ["Stripe", "Fawry", "Node.js"],
+    category: "Node.js",
     problem: "The need for a seamless, secure checkout experience supporting both international and local payment gateways.",
     solution: "Integrated Stripe and Fawry payment APIs with a secure Node.js backend to process transactions safely.",
     image: "storeApi.png",
@@ -56,8 +56,8 @@ const projectsData = [
   },
   {
     title: "Modern E-Commerce Store",
-    stack: ["React","tailwind"],
-    category: "React", 
+    stack: ["React", "tailwind"],
+    category: "React",
     problem: "The need for a seamless, secure checkout experience supporting both international and local payment gateways.",
     solution: "Integrated Stripe and Fawry payment APIs with a secure Node.js backend to process transactions safely.",
     image: "Store.png",
@@ -67,12 +67,25 @@ const projectsData = [
   {
     title: "openAI Chatbot",
     stack: ["React", "node js", "openAi", "GPT-4"],
-    category: "OpenAI", 
+    category: "OpenAI",
     problem: "Users need an intuitive chat interface to interact with AI models for various queries.",
     solution: "Built a responsive chat interface with real-time messaging and context-aware responses using GPT-4.",
     image: "chatgpt.png",
     liveDemo: "https://open-9r6wx21kz-safaa-magdys-projects.vercel.app/",
     github: "#"
+  }
+  ,
+  {
+    //ال
+    title: "Topics Laravel MVC ",
+    stack: ["Laravel", "  php", "MySQL", "Redis"],
+    category: "Laravel",
+    Problem: "Standard web applications often face performance bottlenecks when sending bulk emails (newsletters), leading to slow page loads and potential server timeouts. Additionally, default authentication flows often lack specific business rules, like 'Active' status verification before login.",
+
+    Solution: "Engineered a high-performance MVC application using Laravel Queues to handle email processing asynchronously in the background. I customized the Authentication lifecycle to enforce account activation gates and optimized the data layer with realistic seeders for better QA testing. I also built a custom Artisan Command to automate subscriber communication.",
+    image: "laravelmvc.png",
+    liveDemo: "https://safaamagdyawad.github.io/Topics/",
+    github: "https://github.com/SafaaMagdyAwad/Topics"
   }
 ];
 
@@ -86,10 +99,10 @@ export default function Projects() {
     }
   }, []);
 
-  const categories = ["All Projects", "React", "Node.js", "OpenAI"];
+  const categories = ["All Projects", "React", "Node.js", "OpenAI", "Laravel"];
 
-  const filteredProjects = filter === "All Projects" 
-    ? projectsData 
+  const filteredProjects = filter === "All Projects"
+    ? projectsData
     : projectsData.filter(p => p.category === filter);
 
   return (
@@ -120,11 +133,10 @@ export default function Projects() {
           <button
             key={cat}
             onClick={() => setFilter(cat)}
-            className={`h-11 px-8 rounded-full text-sm font-semibold transition-all duration-300 border ${
-              filter === cat
+            className={`h-11 px-8 rounded-full text-sm font-semibold transition-all duration-300 border ${filter === cat
                 ? "bg-[#4b2bee] border-[#4b2bee] text-white shadow-lg shadow-[#4b2bee]/30 scale-105"
                 : "bg-white dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:border-[#4b2bee] dark:hover:border-white/30 hover:text-[#4b2bee] dark:hover:text-white"
-            }`}
+              }`}
           >
             {cat}
           </button>
@@ -135,19 +147,19 @@ export default function Projects() {
       <main className="max-w-7xl mx-auto px-6 pb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {filteredProjects.map((p, index) => (
-            <div 
-                key={index} 
-                className="group relative bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-3xl overflow-hidden hover:shadow-2xl dark:hover:bg-white/[0.08] transition-all duration-500"
+            <div
+              key={index}
+              className="group relative bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-3xl overflow-hidden hover:shadow-2xl dark:hover:bg-white/[0.08] transition-all duration-500"
             >
               {/* Image Container */}
               <div className="relative aspect-[16/10] overflow-hidden">
-                <img 
-                  src={p.image} 
+                <img
+                  src={p.image}
                   alt={p.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 dark:from-[#0f172a] via-transparent to-transparent opacity-60" />
-                
+
                 {/* Hover Actions */}
                 <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/40 backdrop-blur-sm">
                   <a href={p.liveDemo} target="_blank" rel="noreferrer" className="bg-white text-black px-5 py-2 rounded-xl text-sm font-bold hover:bg-[#4b2bee] hover:text-white transition-colors">
@@ -173,25 +185,25 @@ export default function Projects() {
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-[#4b2bee] transition-colors">{p.title}</h3>
                 <div className="space-y-4 text-sm leading-relaxed">
-                    <p className="text-slate-600 dark:text-slate-400">
-                        <strong className="text-slate-900 dark:text-slate-200 font-semibold block mb-1">Challenge:</strong>
-                        {p.problem}
-                    </p>
-                    <p className="text-slate-600 dark:text-slate-400">
-                        <strong className="text-[#4b2bee] font-semibold block mb-1">Solution:</strong>
-                        {p.solution}
-                    </p>
+                  <p className="text-slate-600 dark:text-slate-400">
+                    <strong className="text-slate-900 dark:text-slate-200 font-semibold block mb-1">Challenge:</strong>
+                    {p.problem}
+                  </p>
+                  <p className="text-slate-600 dark:text-slate-400">
+                    <strong className="text-[#4b2bee] font-semibold block mb-1">Solution:</strong>
+                    {p.solution}
+                  </p>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        
+
         {/* Empty State */}
         {filteredProjects.length === 0 && (
-            <div className="text-center py-20">
-                <p className="text-slate-500 text-lg">No projects found in this category.</p>
-            </div>
+          <div className="text-center py-20">
+            <p className="text-slate-500 text-lg">No projects found in this category.</p>
+          </div>
         )}
       </main>
 
