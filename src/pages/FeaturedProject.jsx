@@ -3,23 +3,23 @@ import { Navbar } from "../components/Navbar";
 
 export default function FeaturedProject() {
   return (
-    <div className="dark bg-[#f6f6f8] dark:bg-[#131022] text-slate-900 dark:text-white min-h-screen font-display">
+    <div className="dark bg-[#131022] text-white min-h-screen font-display">
       {/* Navigation */}
       <Navbar />
 
       <main className="max-w-7xl mx-auto px-6 py-12">
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-2 mb-8 text-slate-500 dark:text-slate-400 text-sm">
-          <a className="hover:text-[#4b2bee]" href="#">Portfolio</a>
+        <div className="flex items-center gap-2 mb-8 text-slate-400 text-sm">
+          <a className="hover:text-[#9987f1]" href="#">Portfolio</a>
           <span className="material-symbols-outlined text-xs">chevron_right</span>
-          <span className="text-slate-900 dark:text-white font-medium">Nexus Deep Dive</span>
+          <span className="text-white font-medium">Nexus Deep Dive</span>
         </div>
 
         {/* Hero */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Visual */}
           <div className="relative group">
-            <div className="absolute -inset-20 bg-[#4b2bee]/20 blur-[100px] rounded-full pointer-events-none" />
+            <div className="absolute -inset-20 bg-[#9987f1]/20 blur-[100px] rounded-full pointer-events-none" />
 
             <div className="relative z-10 mx-auto max-w-[580px] rounded-xl border-4 border-slate-800 bg-slate-900 p-2 shadow-2xl glow-accent overflow-hidden">
               <div className="aspect-[16/10] bg-slate-800 rounded-md overflow-hidden relative">
@@ -47,9 +47,9 @@ export default function FeaturedProject() {
             <div>
               <h1 className="text-4xl md:text-5xl font-black leading-tight mb-4 tracking-tighter">
                 Nexus: Scalable <br />
-                <span className="text-[#4b2bee]">E-Commerce Engine</span>
+                <span className="text-[#9987f1]">E-Commerce Engine</span>
               </h1>
-              <p className="text-slate-600 dark:text-slate-400 text-lg max-w-xl">
+              <p className="text-slate-400 text-lg max-w-xl">
                 High-performance MERN application with JWT authentication and
                 optimized MongoDB indexing.
               </p>
@@ -60,7 +60,7 @@ export default function FeaturedProject() {
               {["React 18", "MongoDB", "Express", "JWT Auth"].map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1.5 rounded-full bg-[#4b2bee]/10 border border-[#4b2bee]/20 text-xs font-bold uppercase tracking-wider text-[#4b2bee]"
+                  className="px-3 py-1.5 rounded-full bg-[#9987f1]/10 border border-[#9987f1]/20 text-xs font-bold uppercase tracking-wider text-[#9987f1]"
                 >
                   {tech}
                 </span>
@@ -69,10 +69,10 @@ export default function FeaturedProject() {
 
             {/* CTA */}
             <div className="flex flex-wrap gap-4">
-              <button className="bg-[#4b2bee] text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg hover:shadow-[#4b2bee]/20 transition-all">
+              <button className="bg-[#9987f1] text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg hover:shadow-[#9987f1]/20 transition-all">
                 View Live Demo
               </button>
-              <button className="bg-slate-200 dark:bg-white/5 px-8 py-4 rounded-xl font-bold transition-all">
+              <button className="bg-white/5 px-8 py-4 rounded-xl font-bold transition-all">
                 GitHub Repo
               </button>
             </div>
