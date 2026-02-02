@@ -9,18 +9,7 @@ export function Footer() {
           Open for freelance & full-time roles.
         </p>
         
-        {/* Optional: Social Icons Area */}
-        <div className="flex justify-center gap-6 mt-8">
-          {['github', 'linkedin', 'mail'].map((icon) => (
-             <span key={icon} className="material-symbols-outlined  text-white/30 hover:text-white cursor-pointer transition-colors">
-               {icon}
-             </span>
-          ))}
-        </div>
-
-        <p className="text-[#9b92c9]/40 text-sm mt-8 transition-colors">
-          © {new Date().getFullYear()} AlexDev — Built with MERN & Tailwind
-        </p>
+        
       </div>
     </footer>
   );

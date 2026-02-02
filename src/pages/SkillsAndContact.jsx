@@ -167,7 +167,7 @@ export default function SkillsAndContact() {
                                                 required
                                                 type="text"
                                                 className="w-full bg-white/5 border border-white/10 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9987f1]/20 focus:border-[#9987f1] transition-all text-white"
-                                                placeholder="John Doe"
+                                                placeholder="mohammad magdy"
                                             />
                                         </div>
                                         <div className="space-y-2">
@@ -177,7 +177,7 @@ export default function SkillsAndContact() {
                                                 required
                                                 type="email"
                                                 className="w-full bg-white/5 border border-white/10 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9987f1]/20 focus:border-[#9987f1] transition-all text-white"
-                                                placeholder="john@example.com"
+                                                placeholder="mohammad@example.com"
                                             />
                                         </div>
                                     </div>
@@ -201,13 +201,13 @@ export default function SkillsAndContact() {
                                         <div className="absolute inset-0 w-full h-full bg-white/20 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 skew-x-12" />
                                         
                                         <span className="relative z-10">
-                                            {isSending ? "Initiating Transmission..." : "Send Message"}
+                                            {isSending ? "Sending Message..." : "Send Message"}
                                         </span>
                                         {!isSending && <span className="material-symbols-outlined text-sm relative z-10">bolt</span>}
                                     </button>
 
-                                    {status === "success" && <p className="text-emerald-400 text-center text-sm font-medium animate-bounce">✓ Connection established!</p>}
-                                    {status === "error" && <p className="text-rose-400 text-center text-sm font-medium">× Connection failed. Retry?</p>}
+                                    {status === "success" && <p className="text-emerald-400 text-center text-sm font-medium animate-bounce">✓ Sent Successfull!</p>}
+                                    {status === "error" && <p className="text-rose-400 text-center text-sm font-medium">× Something wenr wrong. Retry?</p>}
                                 </form>
                             </div>
                         </div>
