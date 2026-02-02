@@ -6,7 +6,7 @@ import { Hero } from "../components/Hero";
 import { ElectricBorder } from "../components/ElectricBorder";
 
 const projectsData = [
-  // ... (Your content remains exactly as you provided)
+  
   {
     title: "Online Exam Platform امتحاني",
     stack: ["React.js", "REST Api"],
@@ -15,7 +15,7 @@ const projectsData = [
     solution: "Developed device fingerprinting, anti-refresh mechanisms to prevent timer resets, and real-time activity logging.",
     image: "Emti7ani.png",
     liveDemo: "https://online-exam-front.vercel.app/",
-    github: "#"
+    github: ""
   },
   {
     title: "Online Exam API امتحاني",
@@ -25,7 +25,7 @@ const projectsData = [
     solution: "Built a robust backend with unique student identification, anti-refresh logic, and automated email recovery via SMTP.",
     image: "Emti7aniAPI.png",
     liveDemo: "https://online-exam-five-chi.vercel.app/api-docs/",
-    github: "#"
+    github: ""
   },
   {
     title: "Terhal Guide API ترحال",
@@ -35,7 +35,7 @@ const projectsData = [
     solution: "Integrated GPT-4 to create an AI tour guide that provides real-time answers and personalized location suggestions.",
     image: "ter7alapi.png",
     liveDemo: "https://backend-mu-ten-26.vercel.app/api-docs/",
-    github: "#"
+    github: "https://github.com/Terhal-tour/Backend"
   },
   {
     title: "Terhal Tour Guide App ترحال",
@@ -45,7 +45,7 @@ const projectsData = [
     solution: "Implemented live geolocation tracking and AI-driven recommendations based on current weather and proximity.",
     image: "Ter7al.png",
     liveDemo: "https://v1-ashy-alpha.vercel.app/",
-    github: "#"
+    github: "https://github.com/Terhal-tour/v1"
   },
   {
     title: "Modern E-Commerce Store API",
@@ -55,7 +55,7 @@ const projectsData = [
     solution: "Integrated Stripe and Fawry payment APIs with a secure Node.js backend to process transactions safely.",
     image: "storeApi.png",
     liveDemo: "https://online-storenode.vercel.app/api-docs/",
-    github: "#"
+    github: "https://github.com/SafaaMagdyAwad/online-storenode"
   },
   {
     title: "Modern E-Commerce Store",
@@ -65,18 +65,9 @@ const projectsData = [
     solution: "Integrated Stripe and Fawry payment APIs with a secure Node.js backend to process transactions safely.",
     image: "Store.png",
     liveDemo: "https://online-store-sigma-five.vercel.app",
-    github: "#"
+    github: "https://github.com/SafaaMagdyAwad/online-store"
   },
-  {
-    title: "MindUp",
-    stack: ["React", "tailwind"],
-    category: "React",
-    problem: "Landing page for startup web devlopment company",
-    solution: "Built a responsive chat interface with real-time messaging and context-aware responses using GPT-4.",
-    image: "MindUp.png",
-    liveDemo: "",
-    github: ""
-  },
+ 
   {
     title: "openAI Chatbot",
     stack: ["React", "node js", "openAi", "GPT-4"],
@@ -84,8 +75,8 @@ const projectsData = [
     problem: "Users need an intuitive chat interface to interact with AI models for various queries.",
     solution: "Built a responsive chat interface with real-time messaging and context-aware responses using GPT-4.",
     image: "chatgpt.png",
-    liveDemo: "https://open-9r6wx21kz-safaa-magdys-projects.vercel.app/",
-    github: "#"
+    liveDemo: "https://open-ai-two-theta.vercel.app/",
+    github: "https://github.com/SafaaMagdyAwad/open-ai"
   },
   {
     title: "Topics Laravel MVC",
@@ -105,7 +96,7 @@ const projectsData = [
     solution: "",
     image: "MidLab.png",
     liveDemo: "https://medical-lap-nine.vercel.app/",
-    github: "#",
+    github: "https://github.com/SafaaMagdyAwad/MedicalLap",
   },
   {
     title: "Restaurant",
@@ -115,7 +106,7 @@ const projectsData = [
     solution: "",
     image: "Resturant.png",
     liveDemo: "https://resturant-five-lake.vercel.app/",
-    github: "#",
+    github: "https://github.com/SafaaMagdyAwad/Resturant",
   },
   {
     title: "Clinic API",
@@ -135,7 +126,7 @@ const projectsData = [
     solution: "",
     image: "resturantAPI.png",
     liveDemo: "https://restaurant-api-henna.vercel.app/api-docs/",
-    github: "#",
+    github: "https://github.com/SafaaMagdyAwad/restaurant-api",
   },
 ];
 
