@@ -139,7 +139,7 @@ export default function SkillsAndContact() {
                             <div className="space-y-6">
                                 {[
                                     { icon: "alternate_email", text: "safaa.magdy.awad.mohammad@gmail.com" },
-                                    { icon: "share", text: "linkedin.com/in/merndev" },
+                                    { icon: "share", text: "linkedin.com/in/safaa-magdy-aa7381234" },
                                 ].map((item) => (
                                     <div key={item.text} className="flex items-center gap-4 text-slate-300 hover:text-[#9987f1] transition-colors cursor-pointer group">
                                         <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-[#9987f1]/50 group-hover:bg-[#9987f1]/10 transition-all">
