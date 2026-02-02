@@ -6,7 +6,7 @@ import { Hero } from "../components/Hero";
 import { ElectricBorder } from "../components/ElectricBorder";
 
 const projectsData = [
-  
+
   {
     title: "Online Exam Platform امتحاني",
     stack: ["React.js", "REST Api"],
@@ -67,7 +67,7 @@ const projectsData = [
     liveDemo: "https://online-store-sigma-five.vercel.app",
     github: "https://github.com/SafaaMagdyAwad/online-store"
   },
- 
+
   {
     title: "openAI Chatbot",
     stack: ["React", "node js", "openAi", "GPT-4"],
@@ -112,8 +112,8 @@ const projectsData = [
     title: "Clinic API",
     stack: ["Nest.js", "MongoDB"],
     category: "Nest.js",
-    problem: "Building a scalable backend API for a clinic system with authentication and role-based access.",
-    solution: "Developed a RESTful API using Nest.js and MongoDB with JWT authentication, user roles (Admin/Doctor/Patient), validation, and modular architecture.",
+    problem: "Building a scalable backend API for a clinic system with authentication, role-based access, and appointment management.",
+    solution: "Developed a RESTful API using Nest.js and MongoDB with JWT authentication, user roles (Admin/Doctor/Patient), validation, modular architecture, and a robust appointment system that prevents booking on unavailable times or slots already booked by other patients.",
     image: "/clinic-api.png",
     liveDemo: "https://github.com/SafaaMagdyAwad/clinic-nest/blob/master/README.md",
     github: "https://github.com/SafaaMagdyAwad/clinic-nest",
