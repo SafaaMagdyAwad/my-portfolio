@@ -4,9 +4,19 @@ module.exports = {
       backgroundImage: {
         'hero-gradient': 'radial-gradient(circle at 50% 50%, rgba(75, 43, 238, 0.15) 0%, rgba(19, 16, 34, 0) 70%)',
       },
+      // 1. Define the keyframes
+      keyframes: {
+        'electric-spin': {
+          'from': { transform: 'rotate(0deg)' },
+          'to': { transform: 'rotate(360deg)' },
+        }
+      },
+      // 2. Define the animation name
+      animation: {
+        'electric': 'electric-spin 3s linear infinite',
+      }
     },
   },
-  // Adding custom utilities for the glass effect
   plugins: [
     function({ addUtilities }) {
       addUtilities({
@@ -17,6 +27,6 @@ module.exports = {
           'border': '1px solid rgba(255, 255, 255, 0.1)',
         },
       })
-    }
+    },
   ]
 }

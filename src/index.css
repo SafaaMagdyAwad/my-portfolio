@@ -1,1 +1,20 @@
 @import "tailwindcss";
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes electricBorderSlow {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
+.animate-electricBorderSlow {
+  animation: electricBorderSlow 6s linear infinite;
+}
+

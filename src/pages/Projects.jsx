@@ -3,8 +3,10 @@ import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { NavLink } from "react-router-dom";
 import { Hero } from "../components/Hero";
+import { ElectricBorder } from "../components/ElectricBorder";
 
 const projectsData = [
+  // ... (Your content remains exactly as you provided)
   {
     title: "Online Exam Platform امتحاني",
     stack: ["React.js", "REST Api"],
@@ -89,10 +91,8 @@ const projectsData = [
     title: "Topics Laravel MVC",
     stack: ["Laravel", "PHP", "MySQL", "Redis"],
     category: "Laravel",
-    problem:
-      "Standard web applications often face performance bottlenecks when sending bulk emails (newsletters), leading to slow page loads and potential server timeouts. Additionally, default authentication flows often lack specific business rules, like 'Active' status verification before login.",
-    solution:
-      "Engineered a high-performance MVC application using Laravel Queues to handle email processing asynchronously in the background. Customized the Authentication lifecycle to enforce account activation gates and optimized the data layer with realistic seeders for better QA testing. Built a custom Artisan Command to automate subscriber communication.",
+    problem: "Standard web applications often face performance bottlenecks when sending bulk emails (newsletters), leading to slow page loads and potential server timeouts. Additionally, default authentication flows often lack specific business rules, like 'Active' status verification before login.",
+    solution: "Engineered a high-performance MVC application using Laravel Queues to handle email processing asynchronously in the background. Customized the Authentication lifecycle to enforce account activation gates and optimized the data layer with realistic seeders for better QA testing. Built a custom Artisan Command to automate subscriber communication.",
     image: "laravelmvc.png",
     liveDemo: "https://safaamagdyawad.github.io/Topics/",
     github: "https://github.com/SafaaMagdyAwad/Topics",
@@ -122,13 +122,11 @@ const projectsData = [
     stack: ["Nest.js", "MongoDB"],
     category: "Nest.js",
     problem: "Building a scalable backend API for a clinic system with authentication and role-based access.",
-    solution:
-      "Developed a RESTful API using Nest.js and MongoDB with JWT authentication, user roles (Admin/Doctor/Patient), validation, and modular architecture.",
+    solution: "Developed a RESTful API using Nest.js and MongoDB with JWT authentication, user roles (Admin/Doctor/Patient), validation, and modular architecture.",
     image: "/clinic-api.png",
     liveDemo: "https://github.com/SafaaMagdyAwad/clinic-nest/blob/master/README.md",
     github: "https://github.com/SafaaMagdyAwad/clinic-nest",
-  }
-  ,
+  },
   {
     title: "Restaurant API",
     stack: ["Node.js", "Express"],
@@ -136,17 +134,14 @@ const projectsData = [
     problem: "",
     solution: "",
     image: "resturantAPI.png",
-    liveDemo: "https://resturant-api-one.vercel.app/api-docs/",
+    liveDemo: "https://restaurant-api-henna.vercel.app/api-docs/",
     github: "#",
   },
-
-
 ];
 
 export default function Projects() {
   const [filter, setFilter] = useState("All Projects");
 
-  // Optional: Auto-detect system dark mode preference
   useEffect(() => {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       document.documentElement.classList.add('dark');
@@ -160,21 +155,45 @@ export default function Projects() {
     : projectsData.filter(p => p.category === filter);
 
   return (
-    <div className="min-h-screen transition-colors duration-500 bg-[#0f172a] font-display text-slate-100 antialiased selection:bg-[#9987f1]/30">
-      <Navbar />
-      <div className="flex flex-col items-center pt-32 pb-20">
-        <div className="max-w-[1024px] w-full px-6">
+    <div className="min-h-screen relative transition-colors duration-500 bg-[#020617] font-display text-slate-100 antialiased selection:bg-[#9987f1]/30 overflow-x-hidden">
 
+      {/* 1. ANIMATION STYLES */}
+      <style>{`
+        @keyframes revealCard {
+          0% { opacity: 0; transform: translateY(30px) scale(0.9); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .animate-project {
+          opacity: 0;
+          animation: revealCard 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        .bg-grid-pattern {
+          background-size: 50px 50px;
+          background-image: 
+            linear-gradient(to right, rgba(153, 135, 241, 0.05) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(153, 135, 241, 0.05) 1px, transparent 1px);
+        }
+      `}</style>
+
+      {/* 2. BACKGROUND AMBIENCE */}
+      <div className="fixed inset-0 bg-grid-pattern pointer-events-none" />
+      <div className="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#9987f1]/10 blur-[120px] rounded-full pointer-events-none animate-pulse" />
+      <div className="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none animate-pulse" style={{ animationDelay: '2s' }} />
+
+      <Navbar />
+
+      <div className="relative z-10 flex flex-col items-center pt-32 pb-20">
+        <div className="max-w-[1280px] w-full px-6">
 
           {/* Filtering Logic */}
-          <section className="flex flex-wrap justify-center gap-3 py-16  px-4">
+          <section className="flex flex-wrap justify-center gap-3 py-16 px-4 animate-project" style={{ animationDelay: '0.1s' }}>
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
                 className={`h-11 px-8 rounded-full text-sm font-semibold transition-all duration-300 border ${filter === cat
-                  ? "bg-[#9987f1] border-[#9987f1] text-white shadow-lg shadow-[#9987f1]/30 scale-105"
-                  : "bg-white/5 border-white/10 text-slate-400 hover:border-white/30 hover:text-white"
+                  ? "bg-[#9987f1] border-[#9987f1] text-white shadow-lg shadow-[#9987f1]/40 scale-105"
+                  : "bg-white/5 border-white/10 text-slate-400 hover:border-white/30 hover:text-white hover:bg-white/10"
                   }`}
               >
                 {cat}
@@ -183,64 +202,23 @@ export default function Projects() {
           </section>
 
           {/* Projects Grid */}
-          <main className="max-w-7xl mx-auto px-6 pb-32">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <main className="pb-32">
+            <div className="columns-1 md:columns-2 lg:columns-3 gap-10 space-y-10">
               {filteredProjects.map((p, index) => (
                 <div
-                  key={index}
-                  className="group relative bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:bg-white/[0.08] transition-all duration-500"
+                  key={p.title}
+                  /* break-inside-avoid بيمنع الكارت إنه يتقسم بين عمودين */
+                  className="animate-project break-inside-avoid mb-10"
+                  style={{ animationDelay: `${0.2 + (index * 0.1)}s` }}
                 >
-                  {/* Image Container */}
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <img
-                      src={p.image}
-                      alt={p.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-60" />
-
-                    {/* Hover Actions */}
-                    <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/40 backdrop-blur-sm">
-                      <a href={p.liveDemo} target="_blank" rel="noreferrer" className="bg-black text-white px-5 py-2 rounded-xl text-sm font-bold hover:bg-[#9987f1] hover:text-white transition-colors">
-                        Live Demo
-                      </a>
-                      <a href={p.github} target="_blank" rel="noreferrer" className="bg-white/10 border border-white/20 backdrop-blur-md px-5 py-2 rounded-xl text-sm font-bold text-white hover:bg-white/20 transition">
-                        GitHub
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-8">
-                    <div className="flex gap-2 mb-4 flex-wrap">
-                      {p.stack.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-[10px] uppercase font-black px-2.5 py-1 rounded-md bg-[#9987f1]/10 text-[#9987f1] border border-[#9987f1]/20"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-[#9987f1] transition-colors">{p.title}</h3>
-                    <div className="space-y-4 text-sm leading-relaxed">
-                      <p className="text-slate-400">
-                        <strong className="text-slate-200 font-semibold block mb-1">Challenge:</strong>
-                        {p.problem}
-                      </p>
-                      <p className="text-slate-400">
-                        <strong className="text-slate-200  font-semibold block mb-1">Solution:</strong>
-                        {p.solution}
-                      </p>
-                    </div>
-                  </div>
+                  <ElectricBorder p={p} index={index} />
                 </div>
               ))}
             </div>
 
             {/* Empty State */}
             {filteredProjects.length === 0 && (
-              <div className="text-center py-20">
+              <div className="text-center py-20 animate-project">
                 <p className="text-slate-500 text-lg">No projects found in this category.</p>
               </div>
             )}

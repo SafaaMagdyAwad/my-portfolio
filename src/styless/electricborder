@@ -1,0 +1,42 @@
+@keyframes spark-travel {
+    0% {
+        offset-distance: 0%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        offset-distance: 100%;
+        opacity: 0;
+    }
+}
+
+.electric-spark {
+    position: absolute;
+    height: 3px;
+    /* Gradient uses white-hot centers with electric blue/cyan edges */
+    background: linear-gradient(90deg, transparent, var(--color), #fff, var(--color), transparent);
+    filter: blur(1px) drop-shadow(0 0 12px var(--color));
+    offset-path: rect(0% 100% 100% 0% round 1.5rem);
+
+    animation: spark-travel var(--dur) linear infinite;
+    animation-delay: var(--delay);
+    width: var(--w);
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+/* Hover: Massive surge in power */
+.group:hover .electric-spark {
+    animation-duration: calc(var(--dur) * 0.3);
+    opacity: 1;
+    height: 4px;
+    filter: blur(1px) drop-shadow(0 0 20px var(--color));
+}
