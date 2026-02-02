@@ -84,8 +84,7 @@ const projectsData = [
     image: "chatgpt.png",
     liveDemo: "https://open-9r6wx21kz-safaa-magdys-projects.vercel.app/",
     github: "#"
-  }
-  ,
+  },
   {
     title: "Topics Laravel MVC",
     stack: ["Laravel", "PHP", "MySQL", "Redis"],
@@ -119,6 +118,18 @@ const projectsData = [
     github: "#",
   },
   {
+    title: "Clinic API",
+    stack: ["Nest.js", "MongoDB"],
+    category: "Nest.js",
+    problem: "Building a scalable backend API for a clinic system with authentication and role-based access.",
+    solution:
+      "Developed a RESTful API using Nest.js and MongoDB with JWT authentication, user roles (Admin/Doctor/Patient), validation, and modular architecture.",
+    image: "/clinic-api.png",
+    liveDemo: "https://github.com/SafaaMagdyAwad/clinic-nest/blob/master/README.md",
+    github: "https://github.com/SafaaMagdyAwad/clinic-nest",
+  }
+  ,
+  {
     title: "Restaurant API",
     stack: ["Node.js", "Express"],
     category: "Node.js",
@@ -142,7 +153,7 @@ export default function Projects() {
     }
   }, []);
 
-  const categories = ["All Projects", "React", "Node.js", "OpenAI", "Laravel"];
+  const categories = ["All Projects", "React", "Node.js", "Nest.js", "OpenAI", "Laravel"];
 
   const filteredProjects = filter === "All Projects"
     ? projectsData

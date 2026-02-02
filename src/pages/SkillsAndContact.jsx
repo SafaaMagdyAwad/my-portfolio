@@ -43,8 +43,13 @@ export default function SkillsAndContact() {
         { icon: "terminal", name: "Node.js" },
         { icon: "palette", name: "Tailwind CSS" },
         { icon: "payments", name: "Stripe" },
+        { icon: "architecture", name: "Nest.js" },
         { icon: "api", name: "REST APIs" },
         { icon: "code_blocks", name: "TypeScript" },
+        { icon: "pentagon", name: "Laravel" },
+        { icon: "php", name: "PHP" },
+        { icon: "coffee", name: "Java" },        // Java is synonymous with the coffee cup
+        { icon: "eco", name: "Java Spring" },   // 'eco' or 'leaf' represents the Spring logo
     ];
 
     return (
