@@ -12,6 +12,7 @@ export function Navbar() {
   const handleHireMe = () => {
     window.open("https://wa.me/+201067605447?text=Hello%20Safaa,%20I%20would%20like%20to%20hire%20you.", "_blank");
   };
+  
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:p-6">
