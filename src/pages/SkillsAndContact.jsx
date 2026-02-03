@@ -52,7 +52,7 @@ export default function SkillsAndContact() {
 
     return (
         <div className="min-h-screen transition-colors duration-300 bg-[#020617] font-sans text-slate-100 overflow-x-hidden">
-            
+
             {/* 1. ELECTRIC & REVEAL ANIMATIONS */}
             <style>{`
                 @keyframes spark-travel {
@@ -98,13 +98,13 @@ export default function SkillsAndContact() {
                         {skills.map((skill, index) => (
                             <div
                                 key={skill.name}
-                                style={{ 
+                                style={{
                                     animationDelay: `${index * 0.05}s`,
-                                    '--skill-color': skill.color + '44' 
+                                    '--skill-color': skill.color + '44'
                                 }}
                                 className="skill-card flex flex-col items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-8 transition-all duration-500 hover:bg-white/10 group animate-[reveal-up_0.6s_ease-out_forwards] opacity-0"
                             >
-                                <span 
+                                <span
                                     className="material-symbols-outlined text-[32px] group-hover:scale-125 transition-all duration-300"
                                     style={{ color: skill.color }}
                                 >
@@ -138,10 +138,14 @@ export default function SkillsAndContact() {
 
                             <div className="space-y-6">
                                 {[
-                                    { icon: "alternate_email", text: "safaa.magdy.awad.mohammad@gmail.com" },
-                                    { icon: "share", text: "linkedin.com/in/safaa-magdy-aa7381234" },
+                                    { icon: "alternate_email", text: "safaa.magdy.awad.mohammad@gmail.com" ,link:"mailto:safaa.magdy.awad.mohammad@gmail.com?subject=Hello&body=Hi%20Safaa,%0A%0AI%20would%20like%20to%20contact%20you%20regarding..."},
+                                    { icon: "share", text: "linkedin.com/in/safaa-magdy-aa7381234", link: "https://www.linkedin.com/in/safaa-magdy-aa7381234/" },
                                 ].map((item) => (
-                                    <div key={item.text} className="flex items-center gap-4 text-slate-300 hover:text-[#9987f1] transition-colors cursor-pointer group">
+                                    <div
+                                        key={item.text}
+                                        className="flex items-center gap-4 text-slate-300 hover:text-[#9987f1] transition-colors cursor-pointer group"
+                                        onClick={() => item.link && window.open(item.link, "_blank")}
+                                    >
                                         <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-[#9987f1]/50 group-hover:bg-[#9987f1]/10 transition-all">
                                             <span className="material-symbols-outlined text-xl">{item.icon}</span>
                                         </div>
@@ -149,6 +153,7 @@ export default function SkillsAndContact() {
                                     </div>
                                 ))}
                             </div>
+
                         </div>
 
                         {/* Right Side: Animated Form */}
@@ -199,7 +204,7 @@ export default function SkillsAndContact() {
                                     >
                                         {/* Button hover light effect */}
                                         <div className="absolute inset-0 w-full h-full bg-white/20 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 skew-x-12" />
-                                        
+
                                         <span className="relative z-10">
                                             {isSending ? "Sending Message..." : "Send Message"}
                                         </span>
