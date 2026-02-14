@@ -27,6 +27,7 @@ export function Navbar() {
       window.removeEventListener("popstate", updatePath);
     };
   }, []);
+  
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:p-6">
