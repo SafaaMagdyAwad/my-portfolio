@@ -28,8 +28,8 @@ export default function Contact() {
     };
 
     try {
-        // await axios.post("https://my-portfolio-api-phi.vercel.app/api/messages", data);
-        await axios.post("http://localhost:3000/api/messages", data);
+        await axios.post("https://my-portfolio-api-phi.vercel.app/api/messages", data);
+        // await axios.post("http://localhost:3000/api/messages", data);
 
         setStatus("success");
         form.current.reset();
