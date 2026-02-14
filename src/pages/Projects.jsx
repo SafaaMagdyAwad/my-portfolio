@@ -92,6 +92,16 @@ const PROJECTS = [
     github: "https://github.com/SafaaMagdyAwad/open-ai",
   },
   {
+  title: "MedLap API",
+  stack: ["Node js", "Express", "MongoDB", "SMS Integration"],
+  category: "Node.js",
+  problem: "Medical labs often rely on manual booking systems or disconnected tools, which causes appointment conflicts, lost patient data, difficulty tracking medical tests, and no automated communication with patients. There was no centralized system to manage doctors, patients, medical tests, bookings, and notifications in one structured backend.",
+  solution: "Built a RESTful API using Node.js, Express, and MongoDB to manage doctors, patients, medical tests, and bookings in a scalable architecture. Implemented role-based authentication using JWT and Mongoose Discriminators for structured user management. Added booking logic with dynamic total price calculation and unique booking codes. Integrated SMS notifications to automatically send booking confirmations to patients. The system ensures data validation, secure authentication, and modular architecture ready for frontend integration.",
+  image: "medLabAPI.png",
+  liveDemo: "https://medical-lab-api.vercel.app/api-docs",
+  github: "https://github.com/SafaaMagdyAwad/medicalLabAPI",
+},
+  {
     title: "Topics Laravel MVC",
     stack: ["Laravel", "PHP", "MySQL", "Redis"],
     category: "Laravel",
