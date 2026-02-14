@@ -21,10 +21,12 @@ export function ElectricBorder({ p }) {
       <Spark dur="9s" delay="-0.1s" w="180px" color="#fff" />
       <Spark dur="8s" delay="-0.2s" w="180px" color="#4c0c9a" />
       <Spark dur="7s" delay="-0.3s" w="180px" color="#fff" />
-      <Spark dur="6s" delay="-0.4s" w="180px" color="#4c0c9a" />
+      {/* <Spark dur="6s" delay="-0.4s" w="180px" color="#4c0c9a" />
       <Spark dur="5s" delay="-0.5s" w="180px" color="#fff" />
       <Spark dur="4s" delay="-0.6s" w="180px" color="#4c0c9a" />
       <Spark dur="3s" delay="-0.7s" w="180px" color="#fff" />
+      <Spark dur="2s" delay="-0.8s" w="180px" color="#4c0c9a" />
+      <Spark dur="1s" delay="-0.9s" w="180px" color="#fff" /> */}
 
       {/* Card */}
       <div className="relative z-10 h-full w-full bg-[#0f172a] rounded-[0.9rem] md:rounded-[1.4rem] overflow-hidden flex flex-col">
@@ -32,7 +34,7 @@ export function ElectricBorder({ p }) {
         {/* Image */}
         <div className="relative aspect-[16/10] overflow-hidden">
           <img
-            src={p.image}
+            src={`images/${p.image}`}
             alt={p.title}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
           />

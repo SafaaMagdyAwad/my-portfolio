@@ -1,9 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
-import emailjs from "@emailjs/browser";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import axios from "axios";
 
-export default function SkillsAndContact() {
+export default function Contact() {
     const form = useRef();
     const [isSending, setIsSending] = useState(false);
     const [status, setStatus] = useState("");
@@ -14,41 +14,34 @@ export default function SkillsAndContact() {
         }
     }, []);
 
-    const sendEmail = (e) => {
-        e.preventDefault();
-        setIsSending(true);
-        emailjs.sendForm(
-            "service_hi7ocz3",
-            "template_shn9lrc",
-            form.current,
-            "jUG-YiSTnuI9350nj"
-        )
-            .then(() => {
-                setStatus("success");
-                form.current.reset();
-            })
-            .catch(() => setStatus("error"))
-            .finally(() => {
-                setIsSending(false);
-                setTimeout(() => setStatus(""), 5000);
-            });
+    const sendEmail = async (e) => {
+    e.preventDefault();
+    setIsSending(true);
+    setStatus("");
+
+    const formData = new FormData(form.current);
+
+    const data = {
+        userName: formData.get("userName"),
+        userEmail: formData.get("userEmail"),
+        message: formData.get("message"),
     };
 
-    const skills = [
-        { icon: "database", name: "MongoDB", color: "#47A248" },
-        { icon: "settings_ethernet", name: "Express.js", color: "#ffffff" },
-        { icon: "deployed_code", name: "React", color: "#61DAFB" },
-        { icon: "terminal", name: "Node.js", color: "#339933" },
-        { icon: "palette", name: "Tailwind CSS", color: "#06B6D4" },
-        { icon: "payments", name: "Stripe", color: "#635BFF" },
-        { icon: "architecture", name: "Nest.js", color: "#E0234E" },
-        { icon: "api", name: "REST APIs", color: "#9987f1" },
-        { icon: "code_blocks", name: "TypeScript", color: "#3178C6" },
-        { icon: "pentagon", name: "Laravel", color: "#FF2D20" },
-        { icon: "php", name: "PHP", color: "#777BB4" },
-        { icon: "coffee", name: "Java", color: "#007396" },
-        { icon: "eco", name: "Java Spring", color: "#6DB33F" },
-    ];
+    try {
+        // await axios.post("https://my-portfolio-api-phi.vercel.app/api/messages", data);
+        await axios.post("http://localhost:3000/api/messages", data);
+
+        setStatus("success");
+        form.current.reset();
+    } catch (error) {
+        console.error(error);
+        setStatus("error");
+    } finally {
+        setIsSending(false);
+    }
+};
+
+    
 
     return (
         <div className="min-h-screen transition-colors duration-300 bg-[#020617] font-sans text-slate-100 overflow-x-hidden">
@@ -81,40 +74,11 @@ export default function SkillsAndContact() {
 
             <Navbar />
 
-            <main className="max-w-7xl mx-auto px-6 py-20 relative">
+            <main className="max-w-7xl mx-auto px-6 mt-7 py-20 relative">
                 {/* Background ambient glow */}
                 <div className="fixed top-1/4 right-0 w-[400px] h-[400px] bg-[#9987f1]/5 blur-[120px] rounded-full pointer-events-none" />
 
-                {/* ================= SKILLS SECTION ================= */}
-                <section className="mb-32 pt-16">
-                    <div className="flex items-center gap-4 mb-12 animate-[reveal-up_0.8s_ease-out]">
-                        <div className="h-px w-12 bg-[#9987f1]" />
-                        <h2 className="text-xs font-bold tracking-[0.2em] uppercase text-[#9987f1]">
-                            Technical Arsenal
-                        </h2>
-                    </div>
-
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                        {skills.map((skill, index) => (
-                            <div
-                                key={skill.name}
-                                style={{
-                                    animationDelay: `${index * 0.05}s`,
-                                    '--skill-color': skill.color + '44'
-                                }}
-                                className="skill-card flex flex-col items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-8 transition-all duration-500 hover:bg-white/10 group animate-[reveal-up_0.6s_ease-out_forwards] opacity-0"
-                            >
-                                <span
-                                    className="material-symbols-outlined text-[32px] group-hover:scale-125 transition-all duration-300"
-                                    style={{ color: skill.color }}
-                                >
-                                    {skill.icon}
-                                </span>
-                                <h3 className="text-sm font-bold text-slate-200">{skill.name}</h3>
-                            </div>
-                        ))}
-                    </div>
-                </section>
+                
 
                 {/* ================= CONTACT SECTION ================= */}
                 <section id="contact" className="pb-32">
@@ -168,7 +132,7 @@ export default function SkillsAndContact() {
                                         <div className="space-y-2">
                                             <label className="text-[10px] uppercase font-bold text-slate-500 tracking-widest ml-1">Name</label>
                                             <input
-                                                name="user_name"
+                                                name="userName"
                                                 required
                                                 type="text"
                                                 className="w-full bg-white/5 border border-white/10 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9987f1]/20 focus:border-[#9987f1] transition-all text-white"
@@ -178,7 +142,7 @@ export default function SkillsAndContact() {
                                         <div className="space-y-2">
                                             <label className="text-[10px] uppercase font-bold text-slate-500 tracking-widest ml-1">Email</label>
                                             <input
-                                                name="user_email"
+                                                name="userEmail"
                                                 required
                                                 type="email"
                                                 className="w-full bg-white/5 border border-white/10 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9987f1]/20 focus:border-[#9987f1] transition-all text-white"

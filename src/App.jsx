@@ -1,8 +1,10 @@
 import { Route, Routes } from "react-router-dom"
 import Portfolio from "./pages/Portfolio"
 import Projects from "./pages/Projects"
-import FeaturedProject from "./pages/FeaturedProject"
-import SkillsAndContact from "./pages/SkillsAndContact"
+import Contact from "./pages/Contact"
+import Skills from "./pages/skills"
+import ProfessionalJourney from "./pages/ProfessionalJourney"
+
 
 
 function App() {
@@ -12,7 +14,9 @@ function App() {
     <Routes>
       <Route path="/" element={<Portfolio />} />
       <Route path="/projects" element={<Projects />} />
-      <Route path="/contact" element={<SkillsAndContact />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/skills" element={<Skills />} />
+      <Route path="/education" element={<ProfessionalJourney />} />
     </Routes>
       
     </>
