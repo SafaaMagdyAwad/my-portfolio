@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import axios from "axios";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
     const form = useRef();
@@ -13,35 +14,50 @@ export default function Contact() {
             document.documentElement.classList.add('dark');
         }
     }, []);
+    const sendEmail = () => {
+        emailjs.sendForm(
+            "service_hi7ocz3",
+            "template_shn9lrc",
+            form.current,
+            "jUG-YiSTnuI9350nj"
+        )
+        //     emailjs.sendForm(
+        // import.meta.env.VITE_EMAIL_SERVICE,
+        // import.meta.env.VITE_EMAIL_TEMPLATE,
+        // form.current,
+        // import.meta.env.VITE_EMAIL_PUBLIC
+        // );
 
-    const sendEmail = async (e) => {
-    e.preventDefault();
-    setIsSending(true);
-    setStatus("");
+    };
+    const sendMessage = async (e) => {
+        e.preventDefault();
+        setIsSending(true);
+        setStatus("");
 
-    const formData = new FormData(form.current);
+        const formData = new FormData(form.current);
 
-    const data = {
-        userName: formData.get("userName"),
-        userEmail: formData.get("userEmail"),
-        message: formData.get("message"),
+        const data = {
+            userName: formData.get("userName"),
+            userEmail: formData.get("userEmail"),
+            message: formData.get("message"),
+        };
+
+        try {
+            await sendEmail();
+            await axios.post("https://my-portfolio-api-phi.vercel.app/api/messages", data);
+            // await axios.post("http://localhost:3000/api/messages", data);
+
+            setStatus("success");
+            form.current.reset();
+        } catch (error) {
+            console.error(error);
+            setStatus("error");
+        } finally {
+            setIsSending(false);
+        }
     };
 
-    try {
-        await axios.post("https://my-portfolio-api-phi.vercel.app/api/messages", data);
-        // await axios.post("http://localhost:3000/api/messages", data);
 
-        setStatus("success");
-        form.current.reset();
-    } catch (error) {
-        console.error(error);
-        setStatus("error");
-    } finally {
-        setIsSending(false);
-    }
-};
-
-    
 
     return (
         <div className="min-h-screen transition-colors duration-300 bg-[#020617] font-sans text-slate-100 overflow-x-hidden">
@@ -78,7 +94,7 @@ export default function Contact() {
                 {/* Background ambient glow */}
                 <div className="fixed top-1/4 right-0 w-[400px] h-[400px] bg-[#9987f1]/5 blur-[120px] rounded-full pointer-events-none" />
 
-                
+
 
                 {/* ================= CONTACT SECTION ================= */}
                 <section id="contact" className="pb-32">
@@ -102,7 +118,7 @@ export default function Contact() {
 
                             <div className="space-y-6">
                                 {[
-                                    { icon: "alternate_email", text: "safaa.magdy.awad.mohammad@gmail.com" ,link:"mailto:safaa.magdy.awad.mohammad@gmail.com?subject=Hello&body=Hi%20Safaa,%0A%0AI%20would%20like%20to%20contact%20you%20regarding..."},
+                                    { icon: "alternate_email", text: "safaa.magdy.awad.mohammad@gmail.com", link: "mailto:safaa.magdy.awad.mohammad@gmail.com?subject=Hello&body=Hi%20Safaa,%0A%0AI%20would%20like%20to%20contact%20you%20regarding..." },
                                     { icon: "share", text: "linkedin.com/in/safaa-magdy-aa7381234", link: "https://www.linkedin.com/in/safaa-magdy-aa7381234/" },
                                 ].map((item) => (
                                     <div
@@ -127,7 +143,7 @@ export default function Contact() {
                             <div className="form-spark" style={{ '--dur': '4s', '--delay': '-2s', width: '30%' }} />
 
                             <div className="relative z-10 bg-[#0a0a0c] border border-white/5 rounded-3xl p-8 md:p-10 backdrop-blur-xl">
-                                <form ref={form} onSubmit={sendEmail} className="space-y-6">
+                                <form ref={form} onSubmit={sendMessage} className="space-y-6">
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
                                             <label className="text-[10px] uppercase font-bold text-slate-500 tracking-widest ml-1">Name</label>

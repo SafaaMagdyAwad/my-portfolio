@@ -8,8 +8,6 @@ export function Footer() {
         <p className="text-[#9b92c9] mt-2 transition-colors">
           Open for freelance & full-time roles.
         </p>
-        
-        
       </div>
     </footer>
   );
